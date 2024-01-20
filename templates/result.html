@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <!-- Add your custom styles or link to external stylesheets here -->
+</head>
+<body>
+    <h2>Result</h2>
+
+    {% for result in results %}
+      <section>
+          <h3>Matching Score: {{ result.matching_score }}</h3>
+
+        <!-- Additional information based on the matching score -->
+        {% if result.matching_score > 75 %}
+            <p>This candidate is a strong match for the job!</p>
+        {% elif result.matching_score > 50 %}
+            <p>This candidate has a moderate match for the job.</p>
+        {% else %}
+            <p>This candidate may not be the best fit for the job.</p>
+        {% endif %}
+    </section>
+
+    <section>
+        <h3>Candidate Information:</h3>
+
+        <!-- Display candidate details here -->
+        <p><strong>Name:</strong> {{ result.candidate_name }}</p>
+        <p><strong>Email:</strong> {{ result.candidate_email }}</p>
+        <p><strong>Phone:</strong> {{ result.candidate_phone }}</p>
+        <p><strong>Skills:</strong> {{ result.candidate_skills }}</p>
+        <p><strong>Experience Level:</strong> {{ result.candidate_experience_level }}</p>
+
+        <!-- Additional information based on candidate details -->
+        {% if result.candidate_experience > 5 %}
+            <p>This candidate has over 5 years of relevant experience.</p>
+        {% endif %}
+    </section>
+
+    <section>
+        <h3>Selected Features:</h3>
+
+        <!-- Display selected features based on checkboxes -->
+        {% if result.resume_parsing %}
+            <p>Resume Parsing: Enabled</p>
+        {% endif %}
+        {% if result.candidate_management %}
+            <p>Efficient Candidate Management: Enabled</p>
+        {% endif %}
+        {% if result.customizable_workflows %}
+            <p>Customizable Workflows: Enabled</p>
+        {% endif %}
+        {% if result.collaboration_tools %}
+            <p>Collaboration Tools: Enabled</p>
+        {% endif %}
+        {% if result.integration_capabilities %}
+            <p>Integration Capabilities with Job Boards: Enabled</p>
+        {% endif %}
+        {% if result.robust_reporting %}
+            <p>Robust Reporting: Enabled</p>
+        {% endif %}
+    </section>
+
+    <section>
+        <h3>Additional Details:</h3>
+
+        <!-- Additional details go here -->
+        <p><strong>Start Date:</strong> {{ result.start_date }}</p>
+        <!-- Add more details as needed -->
+
+    </section>
+
+    <p><a href="/">Go back to the homepage</a></p>
+
+    <!-- Your additional content goes here -->
+</body>
+</html>

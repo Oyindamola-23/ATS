@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Other head elements -->
+
+    <title>ATS System</title>
+    <!-- Add your custom styles or link to external stylesheets here -->
+</head>
+<body>
+    <h1>Welcome to KELANI AT System</h1>
+
+    <div>
+        <p>Look for a system with features such as resume parsing, workflow customization, communication automation, and integration capabilities.</p>
+    </div>
+
+    <!-- Your existing form for job information -->
+    <form action="/process_job" method="post" enctype="multipart/form-data">
+        <!-- Job Information -->
+        <label for="job_description">Job Description:</label>
+        <textarea name="job_description" id="job_description" required></textarea>
+
+        <!-- Allow multiple file uploads for resumes -->
+        <label for="resume_files">Upload Resumes:</label>
+        <input type="file" name="resume_files" id="resume_files" multiple accept=".pdf, .doc, .docx">
+
+        <!-- Candidate Information -->
+        <label for="resume_text">Resume Text:</label>
+        <textarea name="resume_text" id="resume_text" required></textarea>
+
+        <!-- Additional Applicant Information -->
+        <label for="applicant_name">Applicant Name:</label>
+        <input type="text" name="applicant_name" id="applicant_name" required>
+
+        <label for="applicant_email">Applicant Email:</label>
+        <input type="email" name="applicant_email" id="applicant_email" required>
+
+        <label for="applicant_phone">Applicant Phone:</label>
+        <input type="tel" name="applicant_phone" id="applicant_phone">
+
+        <!-- File Upload for Resume -->
+        <label for="resume_file">Upload Resume File:</label>
+        <input type="file" name="resume_file" id="resume_file" accept=".pdf, .doc, .docx">
+
+        <!-- Skills and Qualifications -->
+        <label for="skills">Skills:</label>
+        <input type="text" name="skills" id="skills">
+
+        <!-- Experience Level Dropdown -->
+        <label for="experience_level">Experience Level:</label>
+        <select name="experience_level" id="experience_level">
+            <option value="entry_level">Entry Level</option>
+            <option value="mid_level">Mid Level</option>
+            <option value="senior">Senior</option>
+        </select>
+
+        <!-- Expected Start Date -->
+        <label for="start_date">Expected Start Date:</label>
+        <input type="date" name="start_date" id="start_date">
+
+        <!-- Additional Features -->
+        <div>
+            <label for="resume_parsing">Resume Parsing:</label>
+            <input type="checkbox" name="resume_parsing" id="resume_parsing">
+        </div>
+
+        <div>
+            <label for="candidate_management">Efficient Candidate Management:</label>
+            <input type="checkbox" name="candidate_management" id="candidate_management">
+        </div>
+
+        <div>
+            <label for="customizable_workflows">Customizable Workflows:</label>
+            <input type="checkbox" name="customizable_workflows" id="customizable_workflows">
+        </div>
+
+        <div>
+            <label for="collaboration_tools">Collaboration Tools:</label>
+            <input type="checkbox" name="collaboration_tools" id="collaboration_tools">
+        </div>
+
+        <div>
+            <label for="integration_capabilities">Integration Capabilities with Job Boards:</label>
+            <input type="checkbox" name="integration_capabilities" id="integration_capabilities">
+        </div>
+
+        <div>
+            <label for="robust_reporting">Robust Reporting:</label>
+            <input type="checkbox" name="robust_reporting" id="robust_reporting">
+        </div>
+
+        <!-- Submit Button for Job Information Form -->
+        <button type="submit">Submit Job Information</button>
+    </form>
+
+    <!-- Separate form for text input processing -->
+    <form action="{{ url_for('process_text') }}" method="post">
+        <label for="text_input">Enter Text:</label>
+        <textarea id="text_input" name="text_input" rows="4" cols="50"></textarea>
+        <input type="submit" value="Process Text">
+    </form>
+
+    <!-- Your additional content goes here -->
+</body>
+</html>
