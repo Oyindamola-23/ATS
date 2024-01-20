@@ -61,7 +61,6 @@ Usage:
 Run the application:
 Bash
 python app.py
-Use code with caution. Learn more
 
 Access the application in your web browser: http://127.0.0.1:5000/
 
